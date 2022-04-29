@@ -8,4 +8,10 @@ cmake_minimum_required (VERSION 3.20)
 
 project ("CMakeBuildBotanLib")
 
-add_subdirectory ("src")
+option(BUILD_MINIMAL "Build Botan library with minimal configuration" OFF)
+
+if(${BUILD_MINIMAL})
+  add_subdirectory ("src/minimal")
+else()
+  add_subdirectory ("src")
+endif()
